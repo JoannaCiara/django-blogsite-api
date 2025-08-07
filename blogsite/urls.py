@@ -19,5 +19,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include ('blog.urls')),
+
+    # API endpoints from your blog app
+    path('api/', include('blog.urls')),
+
+    # OAuth2 URLs (e.g., /o/token/, /o/authorize/)
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]
